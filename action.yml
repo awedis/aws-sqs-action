@@ -4,6 +4,15 @@ branding:
   icon: 'send'
   color: 'blue'
 inputs:
+  accessKeyId:
+    description: 'Access Key Id'
+    required: true
+  secretAccessKey:
+    description: 'Secret Access Key'
+    required: true 
+  region:
+    description: 'Region'
+    required: true
   url:
     description: 'AWS SQS url'
     required: true
