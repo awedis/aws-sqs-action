@@ -8,6 +8,9 @@ This action sends message to AWS SQS
   * `url` (**Required** - SQS url to send message)
   * `message` (**Required** - The message to send)
 
+## Version
+[![GitHub Release](https://img.shields.io/github/release/tterb/PlayMusic.svg?style=flat)]()
+
 ## Example
 ```yaml
 name: Test SQS
@@ -21,7 +24,7 @@ jobs:
       - name: Checkout [step]
         uses: actions/checkout@v2
       - name: SQS Action [step]
-        uses: awedis/aws-sqs-action@v1.1
+        uses: awedis/aws-sqs-action@v1.4
         id: sqs
         with:
           accessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
