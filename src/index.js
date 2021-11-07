@@ -1,17 +1,26 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
-const aws = require('aws-sdk');
+const AWS = require('aws-sdk');
 
-async function run() {
+function run() {
   try {
-    const SQS = new aws.SQS();
+    const SQS = new AWS.SQS();
+
+    const accessKeyId = core.getInput('accessKeyId');
+    const secretAccessKey = core.getInput('secretAccessKey');
+    const region = core.getInput('region');
     const sqsUrl = core.getInput('url');
     const message = core.getInput('message');
+
+    AWS.config.update({
+      region,
+      accessKeyId,
+      secretAccessKey
+    });
+
     const params = {
       QueueUrl: sqsUrl,
       MessageBody: message,
     };
-    console.log('params =>', params);
 
     SQS.sendMessage(params, (err, resp) => {
       if (err) {
