@@ -11,12 +11,13 @@ async function run() {
       QueueUrl: sqsUrl,
       MessageBody: message,
     };
+    console.log('params =>', params);
 
     SQS.sendMessage(params, (err, resp) => {
       if (err) {
-          throw err;
+        throw err;
       } else {
-          console.log(`resp ${JSON.stringify(resp, null, 2)}`);
+        console.log(`resp ${JSON.stringify(resp, null, 2)}`);
       }
     });
   } catch (error) {
