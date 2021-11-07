@@ -1,5 +1,6 @@
 # AWS SQS action
 This action sends message to AWS SQS
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 #### Inputs
   * `accessKeyId` (**Required** - Access Key Id)
@@ -7,9 +8,6 @@ This action sends message to AWS SQS
   * `region` (**Required** - Region)
   * `url` (**Required** - SQS url to send message)
   * `message` (**Required** - The message to send)
-
-## Version
-[![GitHub Release](https://img.shields.io/github/release/tterb/PlayMusic.svg?style=flat)]()
 
 ## Example
 ```yaml
