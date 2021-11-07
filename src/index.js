@@ -3,25 +3,26 @@ const AWS = require('aws-sdk');
 
 function run() {
   try {
-    const SQS = new AWS.SQS();
+    const { getInput } = core;
 
-    const accessKeyId = core.getInput('accessKeyId');
-    const secretAccessKey = core.getInput('secretAccessKey');
-    const region = core.getInput('region');
-    const sqsUrl = core.getInput('url');
-    const message = core.getInput('message');
+    const accessKeyId = getInput('accessKeyId');
+    const secretAccessKey = getInput('secretAccessKey');
+    const region = getInput('region');
+    const sqsUrl = getInput('url');
+    const message = getInput('message');
 
     AWS.config.update({
-      region,
       accessKeyId,
-      secretAccessKey
+      secretAccessKey,
+      region,
     });
 
     const params = {
       QueueUrl: sqsUrl,
       MessageBody: message,
     };
-
+    
+    const SQS = new AWS.SQS();
     SQS.sendMessage(params, (err, resp) => {
       if (err) {
         throw err;
