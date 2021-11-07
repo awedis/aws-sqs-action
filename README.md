@@ -24,7 +24,7 @@ jobs:
       - name: Checkout [step]
         uses: actions/checkout@v2
       - name: SQS Action [step]
-        uses: awedis/sqs@v1.1
+        uses: awedis/aws-sqs-action@v1.1
         id: sqs
         with:
           url: ${{ secrets.SQS_URL }}
